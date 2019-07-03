@@ -1,5 +1,5 @@
-// const { google } = require('googleapis')
-// const replace = require('lodash.replace')
+const { google } = require('googleapis')
+const replace = require('lodash.replace')
 
 // require('dotenv').config({
 //   // path: `.env.${process.env.NODE_ENV}`,
@@ -12,7 +12,7 @@
 //   const VIEW_ID = 'ga:196730733'
 
 //   // fix for failing build on the cloud
-//   const googleApiKey = replace(process.env.GA_SERVICE_ACCOUNT_KEY, new RegExp('\\\\n', 'g'), '\n')  || "GA1234556"
+//   const googleApiKey = replace(process.env.GA_SERVICE_ACCOUNT_KEY, new RegExp('\\\\n', 'g'), '\n')
 
 //   const jwtClient = new google.auth.JWT(
 //     process.env.GA_SERVICE_ACCOUNT,
@@ -88,42 +88,42 @@
 //   createNode(node)
 // }
 
-// exports.createPages = async ({ actions, graphql, reporter }) => {
-//   const result = await graphql(`
-//     query {
-//       allMdx(filter: { frontmatter: { published: { eq: true } } }) {
-//         nodes {
-//           frontmatter {
-//             slug
-//           }
-//         }
-//       }
-//     }
-//   `)
+exports.createPages = async ({ actions, graphql, reporter }) => {
+  const result = await graphql(`
+    query {
+      allMdx(filter: { frontmatter: { published: { eq: true } } }) {
+        nodes {
+          frontmatter {
+            slug
+          }
+        }
+      }
+    }
+  `)
 
-//   if (result.errors) {
-//     reporter.panic('failed to create posts', result.errors)
-//   }
+  if (result.errors) {
+    reporter.panic('failed to create posts', result.errors)
+  }
 
-//   const posts = result.data.allMdx.nodes
+  const posts = result.data.allMdx.nodes
 
-//   posts.forEach((post) => {
-//     actions.createPage({
-//       path: post.frontmatter.slug,
-//       component: require.resolve('./src/templates/post.js'),
-//       context: {
-//         slug: post.frontmatter.slug,
-//       },
-//     })
+  posts.forEach((post) => {
+    actions.createPage({
+      path: post.frontmatter.slug,
+      component: require.resolve('./src/templates/post.js'),
+      context: {
+        slug: post.frontmatter.slug,
+      },
+    })
+  })
+}
+
+// exports.onCreateNode = ({ node, getNode, actions }) => {
+//   const { createNodeField } = actions
+
+//   createNodeField({
+//     node,
+//     name: 'popularPosts',
+//     value: data,
 //   })
 // }
-
-// // exports.onCreateNode = ({ node, getNode, actions }) => {
-// //   const { createNodeField } = actions
-
-// //   createNodeField({
-// //     node,
-// //     name: 'popularPosts',
-// //     value: data,
-// //   })
-// // }
