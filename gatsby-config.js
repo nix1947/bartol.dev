@@ -69,16 +69,16 @@ if (
 
 module.exports = {
   siteMetadata: {
-    defaultTitle: "Bartol's Coding Blog",
-    title: "Bartol's Coding Blog",
-    titleTemplate: "%s • Bartol's Coding Blog",
+    defaultTitle: "Manoj Gautam blog",
+    title: "Manoj Gautam  Blog",
+    titleTemplate: "%s • Manoj's Coding Blog",
     defaultDescription:
-      'Personal blog where you can find web development posts and tutorials. Updated weekly.',
+      "Personal blog where you can find  manoj's thoughts.",
     description:
       'Personal blog where you can find web development posts and tutorials. Updated weekly.',
-    siteUrl: 'https://bartol.dev',
+    siteUrl: 'https://manojgautam.com.np',
     defaultImage: '/social.png',
-    twitterUsername: '@BartolDeak',
+    twitterUsername: '@nix1947',
     facebookAppID: '370797287125807',
   },
   plugins: [
@@ -169,8 +169,8 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-robots-txt',
       options: {
-        host: 'https://bartol.dev/',
-        sitemap: 'https://bartol.dev/sitemap.xml',
+        host: 'https://manojgautam.com.np/',
+        sitemap: 'https://manojgautam.com.np/sitemap.xml',
         policy: [{ userAgent: '*', allow: '/' }],
       },
     },

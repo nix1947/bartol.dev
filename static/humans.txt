@@ -3,10 +3,10 @@ humanstxt.org
 /* TEAM */
 
   Me: Bartol Deak
-  Site: https://blog.bartol.dev/
-  Contact: contact@bartol.dev
-  Twitter: @BartolDeak
-  Location: Zadar, Croatia
+  Site: https://manojgautam.com.np/
+  Contact: manojit.gautam@gmail.com
+  Twitter: @nix1947
+  Location: Gulmi, Nepal
 
 
 /* THANKS */

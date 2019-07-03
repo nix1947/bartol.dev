@@ -6,27 +6,27 @@ import Newsletter from '../components/newsletter-card'
 
 export default () => (
   <Layout>
-    <h1>Bartol's Coding Blog</h1>
+    <h1>Manoj Gautam Blog</h1>
     <p>
-      Hey! I'm Bartol Deak, 16 years old High School student currently living in
+      Hey! I'm Manoj Gautam from Gulmi Nepal currently living in
       {' '}
       <a
-        href="https://www.google.com/maps/place/Zadar/"
+        href="https://www.google.com/maps/place/Kathmandu/"
         target="_blank"
         rel="nofollow noopener noreferrer"
       >
-        Zadar
+        Kathmandu
       </a>
       ,
       {' '}
       <a
-        href="https://www.google.com/maps/place/Croatia/"
+        href="https://www.google.com/maps/place/Nepal/"
         target="_blank"
         rel="nofollow noopener noreferrer"
       >
-        Croatia
+        Nepal
       </a>
-      . Started learning web development last year and these days I am writing blog posts about
+      . Graduated as an Electronic and Communication enginneer, working in a financial sector(Insurance Domain) I am writing blog posts about
       technologies, concepts and tools I learn.
     </p>
     <LastPosts />
