@@ -9,14 +9,14 @@ require('dotenv').config({
 let data
 
 function getPopularPosts() {
-  return
+ 
   const VIEW_ID = 'ga:196730733'
 
   // fix for failing build on the cloud
-  const googleApiKey = replace(process.env.GA_SERVICE_ACCOUNT_KEY, new RegExp('\\\\n', 'g'), '\n')
+  const googleApiKey = "GA1234566" || replace(process.env.GA_SERVICE_ACCOUNT_KEY, new RegExp('\\\\n', 'g'), '\n')
 
   const jwtClient = new google.auth.JWT(
-    process.env.GA_SERVICE_ACCOUNT,
+    process.env.GA_SERVICE_ACCOUNT || "GA123456789",
     null,
     googleApiKey,
     ['https://www.googleapis.com/auth/analytics.readonly'],
