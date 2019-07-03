@@ -13,7 +13,7 @@ function getPopularPosts() {
   const VIEW_ID = 'ga:196730733'
 
   // fix for failing build on the cloud
-  const googleApiKey = "GA1234566" || replace(process.env.GA_SERVICE_ACCOUNT_KEY, new RegExp('\\\\n', 'g'), '\n')
+  const googleApiKey = "AIzaSyCrdQ2ZEgu0MjqIdFCkUm1uSVxOgeeP69w" || replace(process.env.GA_SERVICE_ACCOUNT_KEY, new RegExp('\\\\n', 'g'), '\n')
 
   const jwtClient = new google.auth.JWT(
     process.env.GA_SERVICE_ACCOUNT || "GA123456789",
