@@ -13,81 +13,81 @@ function getPopularPosts() {
   const VIEW_ID = 'ga:196730733'
 
   // fix for failing build on the cloud
-  // const googleApiKey = "AIzaSyAv5COtdSUqyUXJnJmX5AbKP3EAwINY4_c" || replace(process.env.GA_SERVICE_ACCOUNT_KEY, new RegExp('\\\\n', 'g'), '\n')
+  const googleApiKey = "AIzaSyDk6eB03j0PF0LAx05lrKJw6NCilS6Wqq4" || replace(process.env.GA_SERVICE_ACCOUNT_KEY, new RegExp('\\\\n', 'g'), '\n')
 
-  // const jwtClient = new google.auth.JWT(
-  //   process.env.GA_SERVICE_ACCOUNT || "reactjs-153116",
-  //   null,
-  //   googleApiKey,
-  //   ['https://www.googleapis.com/auth/analytics.readonly'],
-  //   null,
-  // )
+  const jwtClient = new google.auth.JWT(
+    "100613665848657287730" ||  process.env.GA_SERVICE_ACCOUNT ,
+    null,
+    googleApiKey,
+    ['https://www.googleapis.com/auth/analytics.readonly'],
+    null,
+  )
 
-//   return new Promise((resolve, reject) => {
-//     // Do async job
-//     jwtClient.authorize((err, tokens) => {
-//       if (err) {
-//         console.log(err)
-//         return
-//       }
-//       const analytics = google.analytics('v3')
+  return new Promise((resolve, reject) => {
+    // Do async job
+    jwtClient.authorize((err, tokens) => {
+      if (err) {
+        console.log(err)
+        return
+      }
+      const analytics = google.analytics('v3')
 
-//       analytics.data.ga.get(
-//         {
-//           auth: jwtClient,
-//           ids: VIEW_ID,
-//           metrics: 'ga:uniquePageviews',
-//           dimensions: 'ga:pagePath',
-//           'start-date': '2019-01-01', // or 30daysAgo
-//           'end-date': 'today',
-//           sort: '-ga:uniquePageviews',
-//           'max-results': 5,
-//           filters: 'ga:pagePath=~/blog/.*/',
-//         },
-//         (err, response) => {
-//           if (err) {
-//             reject(err)
-//           }
+      analytics.data.ga.get(
+        {
+          auth: jwtClient,
+          ids: VIEW_ID,
+          metrics: 'ga:uniquePageviews',
+          dimensions: 'ga:pagePath',
+          'start-date': '2019-01-01', // or 30daysAgo
+          'end-date': 'today',
+          sort: '-ga:uniquePageviews',
+          'max-results': 5,
+          filters: 'ga:pagePath=~/blog/.*/',
+        },
+        (err, response) => {
+          if (err) {
+            reject(err)
+          }
 
-//           // console.log(JSON.stringify(response, null, 4))
-//           console.log(JSON.stringify(response.data.rows, null, 4))
+          // console.log(JSON.stringify(response, null, 4))
+          console.log(JSON.stringify(response.data.rows, null, 4))
 
-//           data = response.data.rows
+          data = response.data.rows
 
-//           resolve(data)
-//         },
-//       )
-//     })
-//   })
-// }
+          resolve(data)
+        },
+      )
+    })
+  })
+}
 
-// exports.sourceNodes = async ({ actions, createNodeId, createContentDigest }) => {
-//   const { createNode } = actions
+exports.sourceNodes = async ({ actions, createNodeId, createContentDigest }) => {
+  const { createNode } = actions
 
-//   await getPopularPosts()
+  await getPopularPosts()
 
-//   const myData = {
-//     popularPosts: data,
-//   }
+  const myData = {
+    popularPosts: data,
+  }
 
-//   const nodeContent = JSON.stringify(myData)
+  const nodeContent = JSON.stringify(myData)
 
-//   const nodeMeta = {
-//     id: createNodeId('popular-posts'),
-//     parent: null,
-//     children: [],
-//     internal: {
-//       type: 'googleApiData',
-//       mediaType: 'text/html',
-//       content: nodeContent,
-//       contentDigest: createContentDigest(myData),
-//     },
-//   }
+  const nodeMeta = {
+    id: createNodeId('popular-posts'),
+    parent: null,
+    children: [],
+    internal: {
+      type: 'googleApiData',
+      mediaType: 'text/html',
+      content: nodeContent,
+      contentDigest: createContentDigest(myData),
+    },
+  }
 
-//   const node = Object.assign({}, myData, nodeMeta)
+  const node = Object.assign({}, myData, nodeMeta)
 
-//   createNode(node)
-// }
+  createNode(node)
+}
 
 exports.createPages = async ({ actions, graphql, reporter }) => {
   const result = await graphql(`
@@ -117,7 +117,6 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       },
     })
   })
-}
 }
 
 // exports.onCreateNode = ({ node, getNode, actions }) => {
