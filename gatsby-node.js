@@ -10,7 +10,7 @@ let data
 
 function getPopularPosts() {
  
-  const VIEW_ID = 'ga:196730733'
+  const VIEW_ID = 'ga:142698002'
 
   // fix for failing build on the cloud
   const googleApiKey = "AIzaSyDk6eB03j0PF0LAx05lrKJw6NCilS6Wqq4" || replace(process.env.GA_SERVICE_ACCOUNT_KEY, new RegExp('\\\\n', 'g'), '\n')
